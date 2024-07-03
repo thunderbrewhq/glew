@@ -1,0 +1,13 @@
+.{
+  .name = "glew",
+  .version = "2.2.0",
+  .dependencies = .{},
+  .paths = .{
+    "include",
+    "src",
+    "LICENSE.txt",
+    "README.md",
+    "build.zig",
+    "build.zig.zon"
+  }
+}
