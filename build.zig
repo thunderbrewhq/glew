@@ -12,7 +12,11 @@ pub fn build(b: *std.Build) void {
   // Link C standard library
   glew.linkLibC();
 
+  // Include "include/"
   glew.addIncludePath(b.path("include"));
+
+  // Enable static library mode
+  glew.defineCMacro("GLEW_STATIC", "1");
 
   const glew_sources = [_][]const u8 {
     "src/glew.c",
@@ -29,6 +33,7 @@ pub fn build(b: *std.Build) void {
     .flags = &glew_compiler_flags
   });
 
-  glew.installHeadersDirectory(b.path("include/GL"), "GL", .{});
+  glew.installHeadersDirectory(b.path("include/GL"), "GL", .{ .include_extensions = &.{"h"} });
+  
   b.installArtifact(glew);
 }
