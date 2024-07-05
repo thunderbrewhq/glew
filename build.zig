@@ -19,9 +19,7 @@ pub fn build(b: *std.Build) void {
   glew.defineCMacro("GLEW_STATIC", "1");
 
   const glew_sources = [_][]const u8 {
-    "src/glew.c",
-    "src/glewinfo.c",
-    "src/visualinfo.c"
+    "src/glew.c"
   };
 
   const glew_compiler_flags = [_][]const u8 {
